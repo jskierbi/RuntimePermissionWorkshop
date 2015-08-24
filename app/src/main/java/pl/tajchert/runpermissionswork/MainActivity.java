@@ -26,6 +26,6 @@ public class MainActivity extends AppCompatActivity {
     public void clickButtCall() {
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + "11122233"));
-        startActivity(intent);
+        startActivity(intent);//TODO Handle SecurityException as first DIY task
     }
 }
