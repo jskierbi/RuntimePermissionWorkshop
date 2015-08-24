@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
             callTest();
         } else {
             //We don't, lets ask for it. Result will be thrown in onRequestPermissionsResult()
+            //TODO Using ActivityCompat.shouldShowRequestPermissionRationale() check if we should explain
+            // user why we need this permission (if user already clicked "deny" button.
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CODE_PHONE);
         }
     }
