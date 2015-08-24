@@ -15,6 +15,8 @@ import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import pl.tajchert.nammu.Nammu;
+import pl.tajchert.nammu.PermissionListener;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -28,9 +30,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        Nammu.init(this);
     }
-    //TODO DIY using Nammu library (already added in dependecies monitor your permissions in onResume()
-    //TODO Tip: useful methods init() and permissionCompare() (suggested to call in onResume).
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //Lets check what permission were added/removed since last time user looked at us
+        //(maybe he went to settings and left us permissionless?!)
+        Nammu.permissionCompare(new PermissionListener() {
+            @Override
+            public void permissionsChanged(String s) {
+                Log.d(TAG, "permissionsChanged : " + s);
+                Toast.makeText(MainActivity.this, "Permission changed: " + s,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void permissionsGranted(String s) {
+                Log.d(TAG, "permissionsGranted : " + s);
+                Toast.makeText(MainActivity.this, "Permission granted: " + s,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void permissionsRemoved(String s) {
+                Log.d(TAG, "permissionsRemoved : " + s);
+                Toast.makeText(MainActivity.this, "Permission removed: " + s,Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     @OnClick(R.id.buttonCall)
     public void clickButtCall() {
