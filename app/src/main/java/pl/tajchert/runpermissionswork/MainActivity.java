@@ -4,13 +4,16 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Bind(R.id.main_layout)
     View mLayout;//We will use it later
@@ -26,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
     public void clickButtCall() {
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + "11122233"));
-        startActivity(intent);//TODO Handle SecurityException as first DIY task
+        try {
+            startActivity(intent);
+        } catch (SecurityException e) {
+            Toast.makeText(this, "We do not have permission, abort", Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "clickButtCall lack of permission: " + e.getLocalizedMessage());
+        }
     }
 }
