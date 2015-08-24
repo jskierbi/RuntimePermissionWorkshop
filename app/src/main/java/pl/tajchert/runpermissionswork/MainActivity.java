@@ -27,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.buttonCall)
     public void clickButtCall() {
+        //TODO Ok so when targeting API=23 we will not have "out of the box" permission to do stuff.
+        //Lets try ask user for it!
+        //Try yourself, if not move to next commit
+        //Useful methods: ActivityCompat.checkSelfPermission(), ActivityCompat.requestPermissions(),
+        //and remember to handle result in onRequestPermissionsResult()
+
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + "11122233"));
         try {
