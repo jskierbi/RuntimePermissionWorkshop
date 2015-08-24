@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
     }
+    //TODO DIY using Nammu library (already added in dependecies monitor your permissions in onResume()
+    //TODO Tip: useful methods init() and permissionCompare() (suggested to call in onResume).
 
     @OnClick(R.id.buttonCall)
     public void clickButtCall() {
