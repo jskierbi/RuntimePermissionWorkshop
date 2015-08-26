@@ -17,8 +17,23 @@ And proceed to next commits, read comments and look for DIY TODO marks with task
 
 Good luck!
 
-#TODO
+#Read at home
 
-Add [Nammu](https://github.com/tajchert/Nammu) library for monitoring permissions.
+Links I found useful on Runtime Permission topic. Can be a good read after a workshop.
+
+
+[Google Permission guide](https://developer.android.com/preview/features/runtime-permissions.html)
+
+[Google Runtime Permission sample](https://github.com/googlesamples/android-RuntimePermissions?linkId=16169284)
+
+[Sample with accessing Local Storage](https://github.com/ianhanniballake/LocalStorage/)
+
+[Everything every Android Developer must know about new Android's Runtime Permission](http://inthecheesefactory.com/blog/things-you-need-to-know-about-android-m-permission-developer-edition/en)
+
+[Understanding Permissions in Android M](http://code.tutsplus.com/articles/understanding-permissions-in-android-m--cms-24443)
+
+[Exploring the new Android Permissions Model](https://medium.com/ribot-labs/exploring-the-new-android-permissions-model-ba1d5d6c0610#8de8)
+
+#TODO
 
 Add [PermissionsDispatcher](https://github.com/hotchemi/PermissionsDispatcher) library for easy asking using annotations.
